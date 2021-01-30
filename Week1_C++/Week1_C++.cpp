@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdio>
 #include <string>
-
+#include <fstream>
 using namespace std;
 
 //WEEK 1
@@ -175,7 +175,7 @@ int main()
 	return 0;
 }*/
 //infinit reading
-// /*
+/*
 int main()
 {
 	char band;
@@ -245,6 +245,98 @@ int main()
 
 	}
 	return 0;
-}//*/
+}*/
+
+//infinit input + infinit storage
+/*
+int main()
+{
+	ofstream fout("Output.txt");
+
+	char band;
+	char exit;
+	signed long long int number;
+	bool ok = 0;
+	cout << "Hello customer! \n Please enter a number:\n";
+	while (ok == 0)
+	{
+		int q = 0;
+		cout << "\nNumber :";
+		{
+			cin >> number;
+			if (cin.fail())
+			{
+				cout << "\n Please enter a valid answer:";
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cin >> number;
+			}
+			else
+			{
+				ok = 1;
+			}
+		}while (ok == 0)
+		ok = 0;
+		if (number < 11)
+		{
+			band = 97;
+			fout << band << " " << number <<endl;
+		}
+		else if (number > 10 && number < 51)
+		{
+			band = 98;
+			fout << band << " " << number << endl;
+		}
+		else if (number > 50 && number < 71)
+		{
+			band = 99;
+			fout << band << " " << number << endl;
+		}
+		else
+		{
+			band = 100;
+			fout << band << " " << number << endl;
+		}
+		cout << band;
+		cout << "\nFor exit press q\n";
+		while (q == 0)
+		{
+			cin >> exit;
+			if (cin.fail())
+			{
+				cout << "\n Please enter a valid answer:";
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cin >> exit;
+			}
+			else if (strchr("q", exit) || strchr("Q", exit))
+			{
+				q = 1;
+				ok = 1;
+				fout.close();
+			}
+			else
+			{
+				q = 1;
+				ok = 0;
+			}
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+		}
+
+	}
+	return 0;
+}*/
+
+/**********************************************************************************************************/
+
+//WEEK 3
+int main()
+{
+
+	return 0;
+}
+
 
 /**********************************************************************************************************/

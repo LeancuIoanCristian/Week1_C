@@ -1,0 +1,10 @@
+Your number 25 was smaller than 100.
+Your number 25 is a multiple of 5.
+Your number 345 was higher than 100.
+Your number 345 is a multiple of 5.
+Your number 12 was smaller than 100.
+Your number 12 is not a multiple of 5.
+Your number 234 was higher than 100.
+Your number 234 is not a multiple of 5.
+Your number 150 was higher than 100.
+Your number 150 is a multiple of 5.

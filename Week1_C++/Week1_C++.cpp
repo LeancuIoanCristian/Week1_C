@@ -4,7 +4,7 @@
 #include <fstream>
 using namespace std;
 
-//WEEK 1
+//WEEK 1 - Celsius to Fahrenheit and Fahrenheit to Celcius conversion, repeatable + exit command
 /*
 float Calculus_Celcius_To_Fahrenheit(float temperature)
 {
@@ -122,7 +122,7 @@ int main()
 
 /**********************************************************************************************************/
 
-//WEEK 2
+//WEEK 2 Checking values and band assigning( + storage for 4 numbers)
 /*
 int main()
 {
@@ -174,7 +174,7 @@ int main()
 
 	return 0;
 }*/
-//infinit reading
+//Checking values and band assigning (infinit reading + on spot answer)
 /*
 int main()
 {
@@ -247,7 +247,7 @@ int main()
 	return 0;
 }*/
 
-//infinit input + infinit storage
+//Checking values and band assigning (infinit input + on spot answer + infinit storage)
 /*
 int main()
 {
@@ -332,10 +332,98 @@ int main()
 /**********************************************************************************************************/
 
 //WEEK 3
+ofstream fout("Output_Week3.txt");
+
 int main()
 {
-
+	void Check_And_Division(int& i, int counter, float numbers_array[]);
+	int counter = 0,  i = 1;
+	float number, numbers_array[253];
+	char exit;
+	bool ok = 0;
+	cout << "Hello customer." << endl << "Please enter a number:" << endl;
+	while (ok == 0)
+	{
+		int q = 0;
+		cout << "\nNumber :";
+		{
+			cin >> number;
+			if (cin.fail())
+			{
+				cout << "\n Please enter a valid answer:";
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cin >> number;
+			}
+			else
+			{
+				counter++;
+				numbers_array[counter] = number;
+			}
+			cout << "For endindg the program, please enter Q"<< endl;
+			while (q == 0)
+			{
+				cin >> exit;
+				if (cin.fail())
+				{
+					cout << "\n Please enter a valid answer:";
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cin >> exit;
+				}
+				else if (strchr("q", exit) || strchr("Q", exit))
+				{
+					q = 1;
+					ok = 1;
+				}
+				else
+				{
+					q = 1;
+					ok = 0;
+				}
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			}
+		}
+		
+	}
+	Check_And_Division(i, counter, numbers_array);
 	return 0;
+}
+
+void Check_And_Division(int& i, int counter, float numbers_array[])
+{
+	if (i <= counter)
+	{
+		if (numbers_array[i] <= 100)
+		{
+
+			cout << "Your number " << numbers_array[i] << " was smaller than 100." << endl;
+			fout << "Your number " << numbers_array[i] << " was smaller than 100." << endl;
+		}
+		else
+		{
+			cout << "Your number " << numbers_array[i] << " was higher than 100." << endl;
+			fout << "Your number " << numbers_array[i] << " was higher than 100." << endl;
+		}
+
+		float check;
+		check = numbers_array[i]/ 5.0f* 10;
+		check = fmod(check, 10);
+		if (check == 0)
+		{
+			cout << "Your number " << numbers_array[i] << " is a multiple of 5." << endl <<"\n\n";
+			fout << "Your number " << numbers_array[i] << " is a multiple of 5." << endl << "\n\n";
+		}
+		else
+		{
+			cout << "Your number " << numbers_array[i] << " is not a multiple of 5." << endl<<"\n\n";
+			fout << "Your number " << numbers_array[i] << " is not a multiple of 5." << endl << "\n\n";
+		}
+		i++;
+		Check_And_Division(i, counter, numbers_array);
+		fout.close();
+	}
 }
 
 
